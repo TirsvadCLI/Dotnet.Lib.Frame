@@ -1,5 +1,5 @@
 ﻿namespace TirsvadCLI;
-class Frame
+public class Frame
 {
     private int _windowWidth; // Width of the frame
     private int _windowHeight; // Height of the frame
