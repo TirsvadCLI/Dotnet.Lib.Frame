@@ -5,7 +5,7 @@
         <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <VersionPrefix>0.1.0-alpha.2</VersionPrefix>
+        <VersionPrefix>0.1.0-alpha.4</VersionPrefix>
         <PackageId>TirsvadCLI.$(AssemblyName)</PackageId>
         <Title>Frame handler</Title>
         <Authors>Jens Tirsvad Nielsen</Authors>
