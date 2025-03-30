@@ -1,4 +1,4 @@
-﻿namespace TirsvadCLI;
+﻿namespace TirsvadCLI.Frame;
 
 public class Frame
 {
@@ -55,6 +55,42 @@ public class Frame
     }
 
     /// <summary>
+    /// Frame with custom text and default border characters.
+    /// Default the frame will be same size as window if not specified.
+    /// </summary>
+    /// <param name="windowWidth">The windowWidth of the frame.</param>
+    /// <param name="windowHeight">The windowHeight of the frame.</param>
+    /// <param name="frameText">The text inside the frame.</param>
+    /// <param name="frameWidth">Optional: The width of the frame.</param>
+    /// <param name="frameHeight">Optional: The height of the frame.</param>
+    /// <param name="leftTop">Optional: The character for the top-left corner.</param>
+    /// <param name="rightTop">Optional: The character for the top-right corner.</param>
+    /// <param name="leftBottom">Optional: The character for the bottom-left corner.</param>
+    /// <param name="rightBottom">Optional: The character for the bottom-right corner.</param>
+    /// <param name="horizontal">Optional: The character for the horizontal borders.</param>
+    /// <param name="vertical">Optional: The character for the vertical borders.</param>
+    public Frame(int windowWidth, int windowHeight, string[] frameText, int? frameWidth = null, int? frameHeight = null, char leftTop = '╔', char rightTop = '╗', char leftBottom = '╚', char rightBottom = '╝', char horizontal = '═', char vertical = '║')
+    {
+        _windowWidth = windowWidth;
+        _windowHeight = windowHeight;
+        _leftTop = leftTop;
+        _rightTop = rightTop;
+        _leftBottom = leftBottom;
+        _rightBottom = rightBottom;
+        _horizontal = horizontal;
+        _vertical = vertical;
+        if (frameWidth != null)
+            _frameWidth = frameWidth.Value;
+        else
+            _frameWidth = GetMaxLengthOfString(frameText.ToList()) + 1;
+        if (frameHeight != null)
+            _frameHeight = frameHeight.Value;
+        else
+            _frameHeight = frameText.Length + 2;
+        _frameText = new List<string>(frameText);
+    }
+
+    /// <summary>
     /// Sets the background color of the frame.
     /// </summary>
     /// <param name="color">The background color.</param>
@@ -100,7 +136,6 @@ public class Frame
         {
             _startX = (_windowWidth - _frameWidth) / 2;
             _startY = (_windowHeight - _frameHeight) / 2;
-
         }
 
         Console.BackgroundColor = FrameColorBg;
@@ -124,7 +159,7 @@ public class Frame
             if (_frameText != null)
             {
                 text = _frameText.ElementAtOrDefault(i - 1) ?? "";
-                Console.Write(" " + text);
+                Console.Write(text);
             }
             // Clear the inside of the box
             for (int j = 1; j < _frameWidth; j++)
@@ -144,7 +179,24 @@ public class Frame
             Console.Write(_horizontal);
         }
         Console.Write(_rightBottom);
-
         Console.ResetColor();
+    }
+    ///<summary>
+    ///Get the max length of a string in a list of strings.
+    ///</summary>
+    ///<param name="strings">List of strings to check.</param>
+    ///<returns>The max length of a string in the list.</returns>
+    private int GetMaxLengthOfString(List<string> strings)
+    {
+        if (strings == null || strings.Count == 0)
+            return 0;
+
+        int maxLength = 0;
+        foreach (var str in strings)
+        {
+            if (str.Length > maxLength)
+                maxLength = str.Length;
+        }
+        return maxLength;
     }
 }
