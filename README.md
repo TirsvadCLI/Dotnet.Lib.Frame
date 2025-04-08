@@ -11,18 +11,20 @@ Frame tool for C# console applications.
 
 [![Screenshot 1][Screenshot1]][ScreenShot1-url][![Screenshot 2][Screenshot2]][ScreenShot2-url][![Screenshot 3][Screenshot3]][ScreenShot3-url][![Screenshot 4][Screenshot4]][ScreenShot4-url]
 
-## Table of Contents
+
+## Table of Contents  
 - [About The Project](#about-the-project)  
 - [How to get started](#how-to-get-started)  
-    - [Installation](#installation)  
+   - [Installation](#installation)  
 - [Public Methods](#public-methods)  
-    - [Constructors](#constructors)  
-    - [Methods](#methods)  
+   - [Constructors](#constructors)  
+   - [Methods](#methods)  
 - [Example](#example)  
 - [Contributing](#contributing)  
 - [Bug / Issue Reporting](#bug--issue-reporting)  
 - [License](#license)  
-- [Contact](#contact)
+- [Contact](#contact)  
+- [Acknowledgements](#acknowledgements)
 
 ## About The Project
 
@@ -39,7 +41,6 @@ Nuget package: https://www.nuget.org/packages/TirsvadCLI.Frame/
 ```sh
 dotnet add package TirsvadCLI.Frame
 ```
-
 
 ## Example
 
@@ -140,6 +141,16 @@ Distributed under the GPL-3.0 [License][license-url].
 ## Contact
 
 Jens Tirsvad Nielsen - [LinkedIn][linkedin-url]
+
+## Acknowledgements  
+
+- [Microsoft .NET](https://dotnet.microsoft.com/) - The framework used for this project.  
+- [NuGet](https://www.nuget.org/) - For package management and distribution.  
+- [GitHub](https://github.com/) - For version control and collaboration.  
+- [Shields.io](https://shields.io/) - For creating the badges used in this README.  
+- [Visual Studio](https://visualstudio.microsoft.com/) - For providing a powerful IDE for .NET development.
+- [Stack Overflow](https://stackoverflow.com/) - For community support and answers to programming questions.
+- [Contributors](https://github.com/TirsvadCLI/CSharp.Tool.Frame/graphs/contributors) - Thanks to all contributors who have helped improve this project.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [contributors-shield]: https://img.shields.io/github/contributors/TirsvadCLI/CSharp.Tool.Frame?style=for-the-badge
