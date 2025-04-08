@@ -6,25 +6,24 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-[![Screenshot 1][Screenshot1]][ScreenShot1-url]
-[![Screenshot 2][Screenshot2]][ScreenShot2-url]
-[![Screenshot 3][Screenshot3]][ScreenShot3-url]
-[![Screenshot 4][Screenshot4]][ScreenShot4-url]
-
-# Frame handler
+# ![Logo][Logo] Frame handler
 Frame tool for C# console applications.
 
-## Table of Contents
-- [About The Project](#about-the-project)
-- [How to get started](#how-to-get-started)
-  - [Installation](#installation)
-- [Public Methods](#public-methods)
-  - [Constructors](#constructors)
-  - [Methods](#methods)
-- [Example](#example)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+[![Screenshot 1][Screenshot1]][ScreenShot1-url][![Screenshot 2][Screenshot2]][ScreenShot2-url][![Screenshot 3][Screenshot3]][ScreenShot3-url][![Screenshot 4][Screenshot4]][ScreenShot4-url]
+
+## Table of Contents  
+- [About The Project](#about-the-project)  
+- [How to get started](#how-to-get-started)  
+   - [Installation](#installation)  
+- [Public Methods](#public-methods)  
+   - [Constructors](#constructors)  
+   - [Methods](#methods)  
+- [Example](#example)  
+- [Contributing](#contributing)  
+- [Bug / Issue Reporting](#bug--issue-reporting)  
+- [License](#license)  
+- [Contact](#contact)  
+- [Acknowledgements](#acknowledgements)
 
 ## About The Project
 
@@ -41,6 +40,10 @@ Nuget package: https://www.nuget.org/packages/TirsvadCLI.Frame/
 ```sh
 dotnet add package TirsvadCLI.Frame
 ```
+
+## Example
+
+In the [example](https://github.com/TirsvadCLI/Dotnet.Tool.Frame/blob/main/src/Example/Example.cs) you can see how to use the AnsiCode class.
 
 ## Public Methods
 
@@ -96,10 +99,6 @@ Below is a list of the public methods and their descriptions:
 
 These methods allow you to create visually appealing and customizable frames for console applications. For usage examples, refer to the [Example](#example) section.
 
-## Example
-
-In the [example](https://github.com/TirsvadCLI/Dotnet.Tool.Frame/blob/main/src/Example/Example.cs) you can see how to use the AnsiCode class.
-
 ## Contributing
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -110,6 +109,30 @@ Contributions are what make the open-source community such an amazing place to l
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+## Bug / Issue Reporting  
+
+If you encounter a bug or have an issue to report, please follow these steps:  
+
+1. **Go to the Issues Page**  
+  Navigate to the [GitHub Issues page](https://github.com/TirsvadCLI/CSharp.Tool.Frame/issues).  
+
+2. **Click "New Issue"**  
+  Click the green **"New Issue"** button to create a new issue.  
+
+3. **Provide Details**  
+  - **Title**: Write a concise and descriptive title for the issue.  
+  - **Description**: Include the following details:  
+    - Steps to reproduce the issue.  
+    - Expected behavior.  
+    - Actual behavior.  
+    - Environment details (e.g., OS, .NET version, etc.).  
+  - **Attachments**: Add screenshots, logs, or any other relevant files if applicable.  
+
+4. **Submit the Issue**  
+  Once all details are filled in, click **"Submit new issue"** to report it.  
+
+Your feedback is valuable and helps improve the project!
+
 ## License
 
 Distributed under the GPL-3.0 [License][license-url].
@@ -117,6 +140,16 @@ Distributed under the GPL-3.0 [License][license-url].
 ## Contact
 
 Jens Tirsvad Nielsen - [LinkedIn][linkedin-url]
+
+## Acknowledgements  
+
+- [Microsoft .NET](https://dotnet.microsoft.com/) - The framework used for this project.  
+- [NuGet](https://www.nuget.org/) - For package management and distribution.  
+- [GitHub](https://github.com/) - For version control and collaboration.  
+- [Shields.io](https://shields.io/) - For creating the badges used in this README.  
+- [Visual Studio](https://visualstudio.microsoft.com/) - For providing a powerful IDE for .NET development.
+- [Stack Overflow](https://stackoverflow.com/) - For community support and answers to programming questions.
+- [Contributors](https://github.com/TirsvadCLI/CSharp.Tool.Frame/graphs/contributors) - Thanks to all contributors who have helped improve this project.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [contributors-shield]: https://img.shields.io/github/contributors/TirsvadCLI/CSharp.Tool.Frame?style=for-the-badge
@@ -134,6 +167,7 @@ Jens Tirsvad Nielsen - [LinkedIn][linkedin-url]
 [nuget-shield]: https://img.shields.io/nuget/dt/TirsvadCLI.Frame?style=for-the-badge
 [nuget-url]: https://www.nuget.org/packages/TirsvadCLI.Frame/
 
+[Logo]: https://raw.githubusercontent.com/TirsvadCLI/Dotnet.Tool.Frame/master/logo/32x32/logo.png
 [Screenshot1]: https://raw.githubusercontent.com/TirsvadCLI/Dotnet.Tool.Frame/master/images/Screenshot1-small.png
 [ScreenShot1-url]: https://github.com/TirsvadCLI/Dotnet.Tool.Frame/blob/main/images/Screenshot1.png
 [Screenshot2]: https://raw.githubusercontent.com/TirsvadCLI/Dotnet.Tool.Frame/master/images/Screenshot2-small.png
