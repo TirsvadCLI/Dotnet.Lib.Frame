@@ -6,11 +6,10 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-# Frame handler
+# ![Logo][Logo] Frame handler
 Frame tool for C# console applications.
 
 [![Screenshot 1][Screenshot1]][ScreenShot1-url][![Screenshot 2][Screenshot2]][ScreenShot2-url][![Screenshot 3][Screenshot3]][ScreenShot3-url][![Screenshot 4][Screenshot4]][ScreenShot4-url]
-
 
 ## Table of Contents  
 - [About The Project](#about-the-project)  
@@ -168,6 +167,7 @@ Jens Tirsvad Nielsen - [LinkedIn][linkedin-url]
 [nuget-shield]: https://img.shields.io/nuget/dt/TirsvadCLI.Frame?style=for-the-badge
 [nuget-url]: https://www.nuget.org/packages/TirsvadCLI.Frame/
 
+[Logo]: https://raw.githubusercontent.com/TirsvadCLI/Dotnet.Tool.Frame/master/logo/32x32/logo.png
 [Screenshot1]: https://raw.githubusercontent.com/TirsvadCLI/Dotnet.Tool.Frame/master/images/Screenshot1-small.png
 [ScreenShot1-url]: https://github.com/TirsvadCLI/Dotnet.Tool.Frame/blob/main/images/Screenshot1.png
 [Screenshot2]: https://raw.githubusercontent.com/TirsvadCLI/Dotnet.Tool.Frame/master/images/Screenshot2-small.png
