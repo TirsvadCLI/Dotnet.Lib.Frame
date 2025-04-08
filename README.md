@@ -6,13 +6,10 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-[![Screenshot 1][Screenshot1]][ScreenShot1-url]
-[![Screenshot 2][Screenshot2]][ScreenShot2-url]
-[![Screenshot 3][Screenshot3]][ScreenShot3-url]
-[![Screenshot 4][Screenshot4]][ScreenShot4-url]
-
 # Frame handler
 Frame tool for C# console applications.
+
+[![Screenshot 1][Screenshot1]][ScreenShot1-url][![Screenshot 2][Screenshot2]][ScreenShot2-url][![Screenshot 3][Screenshot3]][ScreenShot3-url][![Screenshot 4][Screenshot4]][ScreenShot4-url]
 
 ## Table of Contents
 - [About The Project](#about-the-project)
