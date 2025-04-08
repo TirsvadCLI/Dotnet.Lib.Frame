@@ -15,10 +15,38 @@ public class Frame
     private char _horizontal; // Character for the horizontal borders
     private char _vertical; // Character for the vertical borders
 
-    private List<string>? _frameText; // Title of the frame
+    private ICollection<string>? _frameText; // Title of the frame
 
-    private ConsoleColor FrameColorBg = ConsoleColor.Black; // Background color of the frame
-    private ConsoleColor FrameColorFg = ConsoleColor.White; // Foreground color of the frame
+    private ConsoleColor _frameColorBg = ConsoleColor.Black; // Background color of the frame
+    private ConsoleColor _frameColorFg = ConsoleColor.White; // Foreground color of the frame
+    private ConsoleColor _textColorBg = ConsoleColor.Black; // Background color of the text
+    private ConsoleColor _textColorFg = ConsoleColor.White; // Foreground color of the text
+
+    /// <summary>
+    /// Default constructor.
+    /// </summary>
+    public Frame()
+    {
+        // Default constructor
+        // Initialize default values
+        _windowWidth = 0;
+        _windowHeight = 0;
+        _frameWidth = 0;
+        _frameHeight = 0;
+        _startX = 0;
+        _startY = 0;
+        _leftTop = '╔';
+        _rightTop = '╗';
+        _leftBottom = '╚';
+        _rightBottom = '╝';
+        _horizontal = '═';
+        _vertical = '║';
+        _frameText = null;
+        _frameColorBg = ConsoleColor.Black;
+        _frameColorFg = ConsoleColor.White;
+        _textColorBg = ConsoleColor.Black;
+        _textColorFg = ConsoleColor.White;
+    }
 
     /// <summary>
     /// Full screen frame with default border characters.
@@ -86,8 +114,18 @@ public class Frame
         if (frameHeight != null)
             _frameHeight = frameHeight.Value;
         else
-            _frameHeight = frameText.Length + 2;
-        _frameText = new List<string>(frameText);
+            _frameHeight = frameText.Count() + 2;
+        _frameText = frameText;
+    }
+
+    /// <summary>
+    /// Sets the start position of the frame.
+    /// </summary>
+    /// <param name="startPosition"></param>
+    public void SetStartPosition((int Left, int Top) startPosition)
+    {
+        _startX = startPosition.Left;
+        _startY = startPosition.Top;
     }
 
     /// <summary>
@@ -96,7 +134,7 @@ public class Frame
     /// <param name="color">The background color.</param>
     public void SetColorBg(ConsoleColor color)
     {
-        FrameColorBg = color;
+        _frameColorBg = _textColorBg = color;
     }
 
     /// <summary>
@@ -105,9 +143,49 @@ public class Frame
     /// <param name="color">The foreground color.</param>
     public void SetColorFg(ConsoleColor color)
     {
-        FrameColorFg = color;
+        _frameColorFg = _textColorFg = color;
     }
 
+    /// <summary>
+    /// Sets the background color of the text.
+    /// </summary>
+    /// <param name="color">The background color.</param>
+    public void SetTextColorBg(ConsoleColor color)
+    {
+        _textColorBg = color;
+    }
+
+    /// <summary>
+    /// Sets the foreground color of the text.
+    /// </summary>
+    /// <param name="color">The foreground color.</param>
+    public void SetTextColorFg(ConsoleColor color)
+    {
+        _textColorFg = color;
+    }
+
+    /// <summary>
+    /// Sets the background color of the frame.
+    /// </summary>
+    /// <param name="color">The background color.</param>
+    public void SetFrameColorBg(ConsoleColor color)
+    {
+        _frameColorBg = color;
+    }
+
+    /// <summary>
+    /// Sets the foreground color of the frame.
+    /// </summary>
+    /// <param name="color">The foreground color.</param>
+    public void SetFrameColorFg(ConsoleColor color)
+    {
+        _frameColorFg = color;
+    }
+
+    /// <summary>
+    /// Sets the text inside the frame.
+    /// </summary>
+    /// <param name="title">The text inside the frame.</param>
     public void SetFrameText(string title)
     {
         _frameText = new List<string>();
@@ -115,6 +193,10 @@ public class Frame
         _frameText.Add(title);
     }
 
+    /// <summary>
+    /// Sets the text inside the frame.
+    /// </summary>
+    /// <param name="title">The text inside the frame.</param>
     public void SetFrameText(List<string> title)
     {
         _frameText = new List<string>();
@@ -138,8 +220,8 @@ public class Frame
             _startY = (_windowHeight - _frameHeight) / 2;
         }
 
-        Console.BackgroundColor = FrameColorBg;
-        Console.ForegroundColor = FrameColorFg;
+        Console.BackgroundColor = _frameColorBg;
+        Console.ForegroundColor = _frameColorFg;
 
         // Draw top border
         Console.SetCursorPosition(_startX, _startY);
@@ -158,15 +240,19 @@ public class Frame
             Console.BackgroundColor = ConsoleColor.Black;
             if (_frameText != null)
             {
+                Console.BackgroundColor = _textColorBg;
+                Console.ForegroundColor = _textColorFg;
                 text = _frameText.ElementAtOrDefault(i - 1) ?? "";
                 Console.Write(text);
             }
             // Clear the inside of the box
-            for (int j = 1; j < _frameWidth; j++)
+            for (int j = 1; j < _frameWidth - text.Length; j++)
             {
+                Console.BackgroundColor = _textColorBg;
+                Console.ForegroundColor = _textColorFg;
                 Console.Write(" ");
             }
-            Console.BackgroundColor = FrameColorBg;
+            Console.BackgroundColor = _frameColorBg;
             Console.SetCursorPosition(_startX + _frameWidth, _startY + i);
             Console.Write(_vertical);
         }
@@ -181,6 +267,7 @@ public class Frame
         Console.Write(_rightBottom);
         Console.ResetColor();
     }
+
     ///<summary>
     ///Get the max length of a string in a list of strings.
     ///</summary>
@@ -198,5 +285,58 @@ public class Frame
                 maxLength = str.Length;
         }
         return maxLength;
+    }
+
+    /// <summary>
+    /// Frames the text.
+    /// Optionally center the text.
+    /// </summary>
+    /// <param name="texts">The text to frame.</param>
+    /// <param name="centerText">If set to <c>true</c>, the text will be centered.</param>
+    public void FrameText(ICollection<string> texts, bool centerText = false)
+    {
+        int linesOfText = 0;
+        int maxLength = 0;
+        string prefix = " ";
+        ICollection<string> frameText = new List<string>();
+        linesOfText = texts.Count();
+        maxLength = GetMaxLengthOfString(texts.ToList());
+        if (linesOfText == 0)
+            return;
+        if (linesOfText > _frameHeight)
+            _frameHeight = linesOfText + 2;
+        if (linesOfText > _windowHeight)
+            _windowHeight = linesOfText + 2;
+        if (maxLength > _frameWidth)
+            _frameWidth = maxLength + 3;
+        if (maxLength > _windowWidth)
+            _windowWidth = maxLength + 3;
+        for (int i = 0; i < linesOfText; i++)
+        {
+            if (texts.ElementAtOrDefault(i) != null)
+                if (centerText)
+                    frameText.Add(CenterText(texts.ElementAt(i), maxLength + 2));
+                else
+                    frameText.Add(texts.ElementAt(i).Insert(0, prefix));
+        }
+        _frameText = frameText;
+    }
+
+    /// <summary>
+    /// Centers the text in the frame.
+    /// </summary>
+    /// <param name="text">The text to center.</param>
+    /// <param name="width">The width of the frame.</param>
+    /// <returns>The centered text.</returns>
+    public string CenterText(string text, int width)
+    {
+        if (width <= text.Length)
+        {
+            return text; // Or throw an exception, or truncate the string
+        }
+        int padding = width - text.Length;
+        int leftPadding = padding / 2;
+        int rightPadding = padding - leftPadding;
+        return new string(' ', leftPadding) + text + new string(' ', rightPadding);
     }
 }

@@ -1,4 +1,4 @@
-[![NuGet Downloads][nuget-shield]][nuget-url]
+﻿[![NuGet Downloads][nuget-shield]][nuget-url]
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -6,38 +6,21 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-<br />
-<div align="center">
-    <a href="https://github.com/TirsvadCLI/CSharp.Tool.Frame">
-        <img src="logo/logo.png" alt="Logo" width="80" height="80">
-    </a>
-    <h3 align="center">Frame handler</h3>
-    <p align="center">
-        <p>Frame tool for C# console applications.</p>
-        <!-- PROJECT SCREENSHOTS -->
-        <a href="https://github.com/TirsvadCLI/Dotnet.Tool.Frame/blob/master/images/Screenshot1.png">
-            <img src="images/Screenshot1.png" alt="The game" height="120">
-        </a>
-        <a href="https://github.com/TirsvadCLI/Dotnet.Tool.Frame/blob/master/images/Screenshot2.png">
-            <img src="images/Screenshot2.png" alt="The game" height="120">
-        </a>
-        <a href="https://github.com/TirsvadCLI/Dotnet.Tool.Frame/blob/master/images/Screenshot3.png">
-            <img src="images/Screenshot3.png" alt="The game" height="120">
-        </a>
-        <p><a href="https://github.com/TirsvadCLI/CSharp.Tool.Frame"><strong>Explore the docs</strong></a></p>
-        <a href="https://github.com/TirsvadCLI/CSharp.Tool.Frame/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
-        �
-        <a href="https://github.com/TirsvadCLI/CSharp.Tool.Frame/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
-    </p>
-</div>
+[![Screenshot 1][Screenshot1]][ScreenShot1-url]
+[![Screenshot 2][Screenshot2]][ScreenShot2-url]
+[![Screenshot 3][Screenshot3]][ScreenShot3-url]
+[![Screenshot 4][Screenshot4]][ScreenShot4-url]
 
 # Frame handler
 Frame tool for C# console applications.
-****
+
 ## Table of Contents
 - [About The Project](#about-the-project)
 - [How to get started](#how-to-get-started)
   - [Installation](#installation)
+- [Public Methods](#public-methods)
+  - [Constructors](#constructors)
+  - [Methods](#methods)
 - [Example](#example)
 - [Contributing](#contributing)
 - [License](#license)
@@ -58,6 +41,60 @@ Nuget package: https://www.nuget.org/packages/TirsvadCLI.Frame/
 ```sh
 dotnet add package TirsvadCLI.Frame
 ```
+
+## Public Methods
+
+The `Frame` class provides several methods to create and customize frames in console applications. 
+Below is a list of the public methods and their descriptions:
+
+### Constructors
+1. **`Frame()`**
+   - Initializes a frame with default dimensions, border characters, and colors.
+
+2. **`Frame(int windowWidth, int windowHeight, int? frameWidth = null, int? frameHeight = null, char leftTop = '╔', char rightTop = '╗', char leftBottom = '╚', char rightBottom = '╝', char horizontal = '═', char vertical = '║')`**
+   - Creates a frame with specified dimensions and optional custom border characters.
+
+3. **`Frame(int windowWidth, int windowHeight, string[] frameText, int? frameWidth = null, int? frameHeight = null, char leftTop = '╔', char rightTop = '╗', char leftBottom = '╚', char rightBottom = '╝', char horizontal = '═', char vertical = '║')`**
+   - Creates a frame with text inside and optional custom dimensions and border characters.
+
+### Methods
+1. **`SetStartPosition((int Left, int Top) startPosition)`**
+   - Sets the starting position of the frame on the console.
+
+2. **`SetColorBg(ConsoleColor color)`**
+   - Sets the background color for both the frame and text.
+
+3. **`SetColorFg(ConsoleColor color)`**
+   - Sets the foreground color for both the frame and text.
+
+4. **`SetTextColorBg(ConsoleColor color)`**
+   - Sets the background color of the text inside the frame.
+
+5. **`SetTextColorFg(ConsoleColor color)`**
+   - Sets the foreground color of the text inside the frame.
+
+6. **`SetFrameColorBg(ConsoleColor color)`**
+   - Sets the background color of the frame.
+
+7. **`SetFrameColorFg(ConsoleColor color)`**
+   - Sets the foreground color of the frame.
+
+8. **`SetFrameText(string title)`**
+   - Sets a single line of text inside the frame.
+
+9. **`SetFrameText(List<string> title)`**
+   - Sets multiple lines of text inside the frame.
+
+10. **`Render(bool center = false)`**
+    - Renders the frame on the console. If `center` is `true`, the frame is centered on the screen.
+
+11. **`FrameText(ICollection<string> texts, bool centerText = false)`**
+    - Frames the provided text and optionally centers it.
+
+12. **`CenterText(string text, int width)`**
+    - Centers a single line of text within the specified width.
+
+These methods allow you to create visually appealing and customizable frames for console applications. For usage examples, refer to the [Example](#example) section.
 
 ## Example
 
@@ -96,5 +133,15 @@ Jens Tirsvad Nielsen - [LinkedIn][linkedin-url]
 [linkedin-url]: https://www.linkedin.com/in/jens-tirsvad-nielsen-13b795b9/
 [nuget-shield]: https://img.shields.io/nuget/dt/TirsvadCLI.Frame?style=for-the-badge
 [nuget-url]: https://www.nuget.org/packages/TirsvadCLI.Frame/
+
+[Screenshot1]: https://raw.githubusercontent.com/TirsvadCLI/Dotnet.Tool.Frame/master/images/Screenshot1-small.png
+[ScreenShot1-url]: https://github.com/TirsvadCLI/Dotnet.Tool.Frame/blob/main/images/Screenshot1.png
+[Screenshot2]: https://raw.githubusercontent.com/TirsvadCLI/Dotnet.Tool.Frame/master/images/Screenshot2-small.png
+[ScreenShot2-url]: https://github.com/TirsvadCLI/Dotnet.Tool.Frame/blob/main/images/Screenshot2.png
+[Screenshot3]: https://raw.githubusercontent.com/TirsvadCLI/Dotnet.Tool.Frame/master/images/Screenshot3-small.png
+[ScreenShot3-url]: https://github.com/TirsvadCLI/Dotnet.Tool.Frame/blob/main/images/Screenshot3.png
+[Screenshot4]: https://raw.githubusercontent.com/TirsvadCLI/Dotnet.Tool.Frame/master/images/Screenshot4-small.png
+[ScreenShot4-url]: https://github.com/TirsvadCLI/Dotnet.Tool.Frame/blob/main/images/Screenshot4.png
+
 
 
