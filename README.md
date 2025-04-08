@@ -12,15 +12,16 @@ Frame tool for C# console applications.
 [![Screenshot 1][Screenshot1]][ScreenShot1-url][![Screenshot 2][Screenshot2]][ScreenShot2-url][![Screenshot 3][Screenshot3]][ScreenShot3-url][![Screenshot 4][Screenshot4]][ScreenShot4-url]
 
 ## Table of Contents
-- [About The Project](#about-the-project)
-- [How to get started](#how-to-get-started)
-  - [Installation](#installation)
-- [Public Methods](#public-methods)
-  - [Constructors](#constructors)
-  - [Methods](#methods)
-- [Example](#example)
-- [Contributing](#contributing)
-- [License](#license)
+- [About The Project](#about-the-project)  
+- [How to get started](#how-to-get-started)  
+    - [Installation](#installation)  
+- [Public Methods](#public-methods)  
+    - [Constructors](#constructors)  
+    - [Methods](#methods)  
+- [Example](#example)  
+- [Contributing](#contributing)  
+- [Bug / Issue Reporting](#bug--issue-reporting)  
+- [License](#license)  
 - [Contact](#contact)
 
 ## About The Project
@@ -38,6 +39,11 @@ Nuget package: https://www.nuget.org/packages/TirsvadCLI.Frame/
 ```sh
 dotnet add package TirsvadCLI.Frame
 ```
+
+
+## Example
+
+In the [example](https://github.com/TirsvadCLI/Dotnet.Tool.Frame/blob/main/src/Example/Example.cs) you can see how to use the AnsiCode class.
 
 ## Public Methods
 
@@ -93,10 +99,6 @@ Below is a list of the public methods and their descriptions:
 
 These methods allow you to create visually appealing and customizable frames for console applications. For usage examples, refer to the [Example](#example) section.
 
-## Example
-
-In the [example](https://github.com/TirsvadCLI/Dotnet.Tool.Frame/blob/main/src/Example/Example.cs) you can see how to use the AnsiCode class.
-
 ## Contributing
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -106,6 +108,30 @@ Contributions are what make the open-source community such an amazing place to l
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+## Bug / Issue Reporting  
+
+If you encounter a bug or have an issue to report, please follow these steps:  
+
+1. **Go to the Issues Page**  
+  Navigate to the [GitHub Issues page](https://github.com/TirsvadCLI/CSharp.Tool.Frame/issues).  
+
+2. **Click "New Issue"**  
+  Click the green **"New Issue"** button to create a new issue.  
+
+3. **Provide Details**  
+  - **Title**: Write a concise and descriptive title for the issue.  
+  - **Description**: Include the following details:  
+    - Steps to reproduce the issue.  
+    - Expected behavior.  
+    - Actual behavior.  
+    - Environment details (e.g., OS, .NET version, etc.).  
+  - **Attachments**: Add screenshots, logs, or any other relevant files if applicable.  
+
+4. **Submit the Issue**  
+  Once all details are filled in, click **"Submit new issue"** to report it.  
+
+Your feedback is valuable and helps improve the project!
 
 ## License
 
