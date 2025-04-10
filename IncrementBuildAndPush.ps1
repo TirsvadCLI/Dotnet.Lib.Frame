@@ -1,6 +1,6 @@
 param(
     # Path to the project file; adjust this default value if needed.  
-    [string]$ProjectFilePath = "$PSScriptRootsrc\Frame\TirsvadCLI.Frame.csproj",
+    [string]$ProjectFilePath = "$PSScriptRoot\src\Frame\TirsvadCLI.Frame.csproj",
     # Path to the NuGet API key for authentication.  
     [string]$NuGetApiKey = "$env:NugetTirsvadCLI",  # Replace with your actual API key or set it in the environment variable.
     # NuGet source URL (default is nuget.org).  
@@ -10,6 +10,83 @@ param(
     # Password for the certificate file
     [string]$CertificatePassword = "$env:CertTirsvadPassword" # Replace with your actual password or set it in the environment variable.
 ) 
+
+if (!
+    #current role
+    (New-Object Security.Principal.WindowsPrincipal(
+        [Security.Principal.WindowsIdentity]::GetCurrent()
+    #is admin?
+    )).IsInRole(
+        [Security.Principal.WindowsBuiltInRole]::Administrator
+    )
+) {
+    #elevate script and exit current non-elevated runtime
+    Start-Process `
+        -FilePath 'powershell' `
+        -ArgumentList (
+            #flatten to single array
+            '-File', $MyInvocation.MyCommand.Source, $args `
+            | %{ $_ }
+        ) `
+        -Verb RunAs
+    exit
+}
+
+# Verify the project file exists.
+if (!(Test-Path $ProjectFilePath)) {
+    Write-Error "Project file does not exist at path: $ProjectFilePath"
+    exit 1
+}
+
+# Load the project file as XML.
+[xml]$projXml = Get-Content $ProjectFilePath
+
+# Find the first PropertyGroup element that contains a VersionPrefix element.
+$propertyGroup = $projXml.Project.PropertyGroup | Where-Object { $_.VersionPrefix }
+if (-not $propertyGroup) {
+    Write-Error "No <VersionPrefix> element found in the project file."
+    exit 1
+}
+
+# Get the old version string.
+$oldVersion = $propertyGroup.VersionPrefix
+Write-Output "Current version: $oldVersion"
+
+# Assume the version is in the format Major.Minor.Build (e.g., 0.1.0)
+$versionParts = $oldVersion -split "\."
+if ($versionParts.Length -ne 3) {
+    Write-Error "Version format is not recognized. Expected format: Major.Minor.Build (e.g., 0.1.0)"
+    exit 1
+}
+
+# Convert the Build part (third component) to an integer and increment it.
+$major = $versionParts[0]
+$minor = $versionParts[1]
+$build = [int]$versionParts[2]
+$build++
+
+# Create a new version string.
+$newVersion = "$major.$minor.$build"
+$propertyGroup.VersionPrefix = $newVersion
+Write-Output "Updated version: $newVersion"
+
+# Save the updated project file.
+$projXml.Save($ProjectFilePath)
+Write-Output "Project file updated with new version."
+
+# Now commit and push the changes using Git.
+Write-Output "Staging changes..."
+& git add $ProjectFilePath
+
+Write-Output "Creating commit..."
+& git commit -m "Bump build number to $newVersion"
+
+Write-Output "Pushing to remote repository..."
+& git push
+
+Write-Output "Build number updated, committed, and pushed successfully."
+
+
 
 # Build the project in Release mode.
 Write-Output "Building the project in Release mode..."
@@ -65,56 +142,3 @@ if ($LASTEXITCODE -ne 0) {
 }
 Write-Output "NuGet package uploaded successfully to $NuGetSource."
 
-# Verify the project file exists.
-if (!(Test-Path $ProjectFilePath)) {
-    Write-Error "Project file does not exist at path: $ProjectFilePath"
-    exit 1
-}
-
-# Load the project file as XML.
-[xml]$projXml = Get-Content $ProjectFilePath
-
-# Find the first PropertyGroup element that contains a VersionPrefix element.
-$propertyGroup = $projXml.Project.PropertyGroup | Where-Object { $_.VersionPrefix }
-if (-not $propertyGroup) {
-    Write-Error "No <VersionPrefix> element found in the project file."
-    exit 1
-}
-
-# Get the old version string.
-$oldVersion = $propertyGroup.VersionPrefix
-Write-Output "Current version: $oldVersion"
-
-# Assume the version is in the format Major.Minor.Build (e.g., 0.1.0)
-$versionParts = $oldVersion -split "\."
-if ($versionParts.Length -ne 3) {
-    Write-Error "Version format is not recognized. Expected format: Major.Minor.Build (e.g., 0.1.0)"
-    exit 1
-}
-
-# Convert the Build part (third component) to an integer and increment it.
-$major = $versionParts[0]
-$minor = $versionParts[1]
-$build = [int]$versionParts[2]
-$build++
-
-# Create a new version string.
-$newVersion = "$major.$minor.$build"
-$propertyGroup.VersionPrefix = $newVersion
-Write-Output "Updated version: $newVersion"
-
-# Save the updated project file.
-$projXml.Save($ProjectFilePath)
-Write-Output "Project file updated with new version."
-
-# Now commit and push the changes using Git.
-Write-Output "Staging changes..."
-& git add $ProjectFilePath
-
-Write-Output "Creating commit..."
-& git commit -m "Bump build number to $newVersion"
-
-Write-Output "Pushing to remote repository..."
-& git push
-
-Write-Output "Build number updated, committed, and pushed successfully."
