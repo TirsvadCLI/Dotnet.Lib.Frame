@@ -51,6 +51,7 @@ The `Frame` class provides several methods to create and customize frames in con
 Below is a list of the public methods and their descriptions:
 
 ### Constructors
+
 1. **`Frame()`**
    - Initializes a frame with default dimensions, border characters, and colors.
 
@@ -61,6 +62,7 @@ Below is a list of the public methods and their descriptions:
    - Creates a frame with text inside and optional custom dimensions and border characters.
 
 ### Methods
+
 1. **`SetStartPosition((int Left, int Top) startPosition)`**
    - Sets the starting position of the frame on the console.
 
@@ -167,15 +169,15 @@ Jens Tirsvad Nielsen - [LinkedIn][linkedin-url]
 [nuget-shield]: https://img.shields.io/nuget/dt/TirsvadCLI.Frame?style=for-the-badge
 [nuget-url]: https://www.nuget.org/packages/TirsvadCLI.Frame/
 
-[Logo]: https://raw.githubusercontent.com/TirsvadCLI/Dotnet.Tool.Frame/master/logo/32x32/logo.png
-[Screenshot1]: https://raw.githubusercontent.com/TirsvadCLI/Dotnet.Tool.Frame/master/images/Screenshot1-small.png
-[ScreenShot1-url]: https://github.com/TirsvadCLI/Dotnet.Tool.Frame/blob/main/images/Screenshot1.png
-[Screenshot2]: https://raw.githubusercontent.com/TirsvadCLI/Dotnet.Tool.Frame/master/images/Screenshot2-small.png
-[ScreenShot2-url]: https://github.com/TirsvadCLI/Dotnet.Tool.Frame/blob/main/images/Screenshot2.png
-[Screenshot3]: https://raw.githubusercontent.com/TirsvadCLI/Dotnet.Tool.Frame/master/images/Screenshot3-small.png
-[ScreenShot3-url]: https://github.com/TirsvadCLI/Dotnet.Tool.Frame/blob/main/images/Screenshot3.png
-[Screenshot4]: https://raw.githubusercontent.com/TirsvadCLI/Dotnet.Tool.Frame/master/images/Screenshot4-small.png
-[ScreenShot4-url]: https://github.com/TirsvadCLI/Dotnet.Tool.Frame/blob/main/images/Screenshot4.png
+[Logo]: https://raw.githubusercontent.com/TirsvadCLI/Dotnet.Tool.Frame/master/image/logo/32x32/logo.png
+[Screenshot1]: https://raw.githubusercontent.com/TirsvadCLI/Dotnet.Tool.Frame/master/image/Screenshot1-small.png
+[ScreenShot1-url]: https://github.com/TirsvadCLI/Dotnet.Tool.Frame/blob/main/image/Screenshot1.png
+[Screenshot2]: https://raw.githubusercontent.com/TirsvadCLI/Dotnet.Tool.Frame/master/image/Screenshot2-small.png
+[ScreenShot2-url]: https://github.com/TirsvadCLI/Dotnet.Tool.Frame/blob/main/image/Screenshot2.png
+[Screenshot3]: https://raw.githubusercontent.com/TirsvadCLI/Dotnet.Tool.Frame/master/image/Screenshot3-small.png
+[ScreenShot3-url]: https://github.com/TirsvadCLI/Dotnet.Tool.Frame/blob/main/image/Screenshot3.png
+[Screenshot4]: https://raw.githubusercontent.com/TirsvadCLI/Dotnet.Tool.Frame/master/image/Screenshot4-small.png
+[ScreenShot4-url]: https://github.com/TirsvadCLI/Dotnet.Tool.Frame/blob/main/image/Screenshot4.png
 
 
 
