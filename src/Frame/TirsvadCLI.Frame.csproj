@@ -1,34 +1,40 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <OutputType>Library</OutputType>
-    <TargetFramework>net9.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <VersionPrefix>0.1.1</VersionPrefix>
-    <PackageId>$(AssemblyName)</PackageId>
-    <Title>Frame handler</Title>
-    <Authors>Jens Tirsvad Nielsen</Authors>
-    <Company>TirsvadCLI</Company>
-    <PackageIcon>logo.png</PackageIcon>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <RepositoryUrl>https://github.com/TirsvadCLI/CSharp.Tool.Frame</RepositoryUrl>
-    <PackageTags>Frame;Console</PackageTags>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <Description>Frame handler tool for console</Description>
-  </PropertyGroup>
-  <ItemGroup>
-    <None Include="..\..\image\logo\64x64\logo.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Include="..\..\README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Include="..\..\LICENSE">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+    <PropertyGroup>
+        <VersionPrefix>0.1.2</VersionPrefix>
+        <PackageId>$(AssemblyName)</PackageId>
+        <Title>Frame library</Title>
+        <Authors>Jens Tirsvad Nielsen</Authors>
+        <Company>TirsvadCLI</Company>
+        <PackageIcon>logo.png</PackageIcon>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <RepositoryUrl>https://github.com/TirsvadCLI/Dotnet.Lib.Frame</RepositoryUrl>
+        <PackageTags>Frame;Console;Library</PackageTags>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <Description>Frame handler tool for console</Description>
+    </PropertyGroup>
+    <PropertyGroup>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Include="..\..\image\logo\128x128\logo.png">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+        <None Include="..\..\README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+        <None Include="..\..\LICENSE">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
 </Project>
